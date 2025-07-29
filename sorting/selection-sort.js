@@ -5,17 +5,20 @@ function swap(a, b, arr) {
 }
 
 function selectionSort() {
-  //   const arr = [13, 46, 24, 52, 20, 9];
   const arr = [5, 2, 3, 1];
-  console.log("Before selection sort", arr);
-  for (let i = 0; i <= arr.length - 2; i++) {
+  const n = arr.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    // Assume element at i index is minimum
     let min = i;
-    for (let j = i; j <= arr.length - 1; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[min]) {
-        swap(i, j, arr);
+        min = j;
       }
     }
-    console.log("i", arr);
+    if (min !== i) {
+      swap(i, min, arr);
+    }
   }
   console.log("After selection sort", arr);
 }
